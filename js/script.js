@@ -11,6 +11,10 @@ function criarPecas() {
         const peca = document.createElement('div');
         peca.style.backgroundImage = "url('/image/Ichi.png')"; // Define a imagem de fundo
         peca.style.backgroundPosition = `${-(numeros[i] % 4) * 100}px ${-Math.floor(numeros[i] / 4) * 100}px`; // Posiciona a peça corretamente
+        peca.style.width = "100px"; // Define largura da peça
+        peca.style.height = "100px"; // Define altura da peça
+        peca.style.display = "inline-block"; // As peças ficam lado a lado
+        peca.style.border = "1px solid #ccc"; // Um contorno para as peças (opcional)
         peca.dataset.numero = numeros[i]; // Armazena o número da peça
         peca.addEventListener('click', moverPeca); // Adiciona o evento de clique
 
@@ -32,14 +36,13 @@ function embaralharArray(array) {
 
 function moverPeca(event) {
     const pecaClicada = event.target;
-    const numeroPecaClicada = parseInt(pecaClicada.dataset.numero);
     const posicaoPecaVazia = pecas.indexOf(pecaVazia);
     const posicaoPecaClicada = pecas.indexOf(pecaClicada);
 
     // Verifica se a peça clicada é adjacente à peça vazia (acima, abaixo, esquerda, direita)
     const podeMover = [
-        posicaoPecaClicada === posicaoPecaVazia - 1, // Peça à esquerda
-        posicaoPecaClicada === posicaoPecaVazia + 1, // Peça à direita
+        (posicaoPecaClicada === posicaoPecaVazia - 1 && posicaoPecaClicada % 4 !== 0), // Peça à esquerda (não pode ser na primeira coluna)
+        (posicaoPecaClicada === posicaoPecaVazia + 1 && posicaoPecaClicada % 4 !== 3), // Peça à direita (não pode ser na última coluna)
         posicaoPecaClicada === posicaoPecaVazia - 4, // Peça acima
         posicaoPecaClicada === posicaoPecaVazia + 4  // Peça abaixo
     ].some(Boolean);
