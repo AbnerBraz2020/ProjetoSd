@@ -9,7 +9,7 @@ function criarPecas() {
 
     for (let i = 0; i <16; i++) {
         const peca = document.createElement('div');
-        peca.style.backgroundImage = "url('/image/windows-10-wallpaper.jpg')"; //Define a imagem de fundo
+        peca.style.backgroundImage = "url('/image/Ichi.png')"; //Define a imagem de fundo
         peca.style.backgroundPosition = `${-(numero[i] % 4) * 100}px ${-Math.floor(numeros[i] /4) * 100}px`; // Posiciona a peça corretamente
         peca.dataset.numero = numero[i]; // Armazena o número da peça
         peca.addEventListener('click', moverPeca); // Adiciona o evento de clipe
