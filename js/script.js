@@ -10,8 +10,8 @@ function criarPecas() {
     for (let i = 0; i <16; i++) {
         const peca = document.createElement('div');
         peca.style.backgroundImage = "url('/image/Ichi.png')"; //Define a imagem de fundo
-        peca.style.backgroundPosition = `${-(numero[i] % 4) * 100}px ${-Math.floor(numeros[i] /4) * 100}px`; // Posiciona a peça corretamente
-        peca.dataset.numero = numero[i]; // Armazena o número da peça
+        peca.style.backgroundPosition = `${-(numeros[i] % 4) * 100}px ${-Math.floor(numeros[i] /4) * 100}px`; // Posiciona a peça corretamente
+        peca.dataset.numero = numeros[i]; // Armazena o número da peça
         peca.addEventListener('click', moverPeca); // Adiciona o evento de clipe
 
         if (numeros[i] === 0) {
@@ -33,8 +33,8 @@ function embaralharArray(array) {
 function moverPeca(event) {
     const pecaClicada = event.target;
     const numeroPecaClicada = parseInt(pecaClicada.dataset.numero);
-    const posicaoPecaVazia = pecas.index0f(pecaVazia);
-    const posicaoPecaClicada = pecas.index0f(pecaClicada);
+    const posicaoPecaVazia = pecas.indexOf(pecaVazia);
+    const posicaoPecaClicada = pecas.indexOf(pecaClicada);
 
     // Verifica se a peça clicada é adjacente à peça vazia
     if (Math.abs(posicaoPecaClicada - posicaoPecaVazia) === 1 || Math.abs(posicaoPecaClicada - posicaoPecaVazia) === 4) {
