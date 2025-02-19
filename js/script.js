@@ -9,7 +9,7 @@ function criarPecas() {
 
     for (let i = 0; i < 16; i++) {
         const peca = document.createElement('div');
-        peca.style.backgroundImage = "url('/image/Ichi.png')"; // Define a imagem de fundo
+        peca.style.backgroundImage = "url('/image/Ichi.jpg')"; // Define a imagem de fundo
         peca.style.backgroundPosition = `${-(numeros[i] % 4) * 100}px ${-Math.floor(numeros[i] / 4) * 100}px`; // Posiciona a peça corretamente
         peca.style.width = "100px"; // Define largura da peça
         peca.style.height = "100px"; // Define altura da peça
